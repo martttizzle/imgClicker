@@ -23,44 +23,9 @@ export const Header = () => (
 );
 
 export const Main = (props) => (
-    <main >
- <img src={props.solarImages.solarList}/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-    </main>
+    <main className={props.effect || "container"}>
+    {props.children}
+</main >
     
    );
 
