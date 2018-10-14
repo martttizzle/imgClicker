@@ -42,6 +42,7 @@ handleCorrect = () => {
 
 filterImage = (id) => {
   const newImages = this.state.unClickedImages.filter(image => image.id !== id);
+  console.log(newImages);
   this.setState({ unClickedImages: newImages });
 }
 
@@ -55,10 +56,15 @@ shuffleImages = () => {
 
 // The game logic
 clickImageEvent = (id) => {
+  console.log(id);
   this.filterImage(id);
   // Check if clicked image exist on current list of unclicked images 
-  (this.state.unClickedImages.filter(image => image.id === id).length === 0) ? this.handleIncorrect() : this.handleCorrect();
+  (this.state.unClickedImages.filter(image => image.id === id).length === 0) ? this.handleIncorrect() : this.handleCorrect();  
   this.handleTopScore();
+  this.shuffleImages();
+
+
+
 }
 
 
@@ -70,12 +76,17 @@ clickImageEvent = (id) => {
         <NavBar navState={this.state} />
         <Header />
         <Main>  {this.state.images.map(image=> (
+
+
           <ImageCard
           clickImageEvent={this.clickImageEvent}
           key={image.id}
           image={image}
           />
-        ))}/>
+
+
+
+        ))}
         </Main>
         <Footer />
       </div>
